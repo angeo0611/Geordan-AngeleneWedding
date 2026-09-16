@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Geordan & Angelene Wedding Invitation">
+
+    <title>Geordan & Angelene — Wedding Invitation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         FALLING PETALS
+    ====================================================== -->
+
+    <div class="petals"
+         aria-hidden="true"></div>
+
+
+    <!-- =====================================================
+         WEDDING MUSIC
+    ====================================================== -->
+
+    <audio id="weddingMusic"
+           loop
+           preload="auto">
+
+        <source src="wedding.mp3"
+                type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- MUSIC BUTTON -->
+
+    <button id="musicToggle"
+            class="music-toggle"
+            type="button"
+            aria-label="Toggle music">
+
+        ♫
+
+    </button>
+
+
+    <!-- =====================================================
+        OPENING ENVELOPE
+    ===================================================== -->
+
+    <section id="opening" class="opening">
+
+        <div class="opening-bokeh" aria-hidden="true"></div>
+        <div class="opening-ground" aria-hidden="true"></div>
+        <div class="opening-glow" aria-hidden="true"></div>
+
+        <div class="envelope-wrap">
+
+            <div
+                class="envelope"
+                id="envelope"
+                role="button"
+                tabindex="0"
+                aria-label="Open wedding invitation"
+            >
+
+                <!-- =========================================
+                    ENVELOPE BACK
+                ========================================== -->
+
+                <img
+                    src="images/envelope-back.png"
+                    class="envelope-back"
+                    alt=""
+                    draggable="false"
+                >
+
+
+                <!-- =========================================
+                    INVITATION CARD LAYER
+
+                    IMPORTANT:
+                    This layer clips the card.
+                    The card can rise, but remains behind
+                    the envelope front.
+                ========================================== -->
+
+                <div class="invitation-card-layer">
+
+                    <img
+                        src="images/invitation-card.png"
+                        class="invitation-card"
+                        alt=""
+                        draggable="false"
+                    >
+
+                </div>
+
+
+                <!-- =========================================
+                    INSIDE FLAP
+                ========================================== -->
+
+                <img
+                    src="images/flap-inside.png"
+                    class="flap-inside"
+                    alt=""
+                    draggable="false"
+                >
+
+
+                <!-- =========================================
+                    ENVELOPE FRONT POCKET
+                ========================================== -->
+
+                <img
+                    src="images/envelope-front.png"
+                    class="envelope-front"
+                    alt=""
+                    draggable="false"
+                >
+
+
+                <!-- =========================================
+                    OUTSIDE FLAP
+                ========================================== -->
+
+                <img
+                    src="images/flap-outside.png"
+                    class="envelope-flap flap-outside"
+                    alt=""
+                    draggable="false"
+                >
+
+
+                <!-- =========================================
+                    WAX SEAL
+                ========================================== -->
+
+                <img
+                    src="images/wax-seal.png"
+                    class="wax-seal"
+                    alt=""
+                    draggable="false"
+                >
+
+            </div>
+
+
+            <!-- =============================================
+                OPENING LABEL
+            ============================================== -->
+
+            <p class="open-label">
+                Your invitation awaits
+            </p>
+
+
+            <!-- =============================================
+                OPEN BUTTON
+            ============================================== -->
+
+            <button
+                id="openInvitation"
+                class="gold-btn"
+                type="button"
+            >
+                TAP TO OPEN
+            </button>
+
+        </div>
+
+    </section>
+  
+  <!-- =====================================================
+       MAIN INVITATION
+       ===================================================== -->
+
+  <main id="invitation" class="invitation">
+
+
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+
+    <header class="hero">
+
+      <div class="hero-image"></div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content reveal">
+
+        <p class="eyebrow">
+          Together with their families
+        </p>
+
+        <h1>
+          Geordan
+          <span>&amp;</span>
+          Angelene
+        </h1>
+
+        <p class="script">
+          are getting married
+        </p>
+
+        <div class="hero-date">
+          28 · 09 · 2026
+        </div>
+
+        <a
+          href="#details"
+          class="scroll-cue"
+        >
+          Scroll to explore
+          <span>↓</span>
+        </a>
+
+      </div>
+
+    </header>
+    <!-- ===================================================
+         INTRO
+         =================================================== -->
+
+    <section class="section intro">
+
+      <div class="container narrow reveal">
+
+        <p class="eyebrow">
+          A beautiful beginning
+        </p>
+
+        <h2>
+          Two hearts.
+          <br>
+          <em>One forever.</em>
+        </h2>
+
+        <p>
+          We invite you to celebrate the beginning
+          of our forever. Your presence, love, and
+          prayers would make our special day even
+          more meaningful.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         COUNTDOWN
+         =================================================== -->
+
+    <section class="section countdown-section">
+
+      <div class="container reveal">
+
+        <p class="eyebrow">
+          Counting down to forever
+        </p>
+
+
+        <div
+          class="countdown"
+          id="countdown"
+        >
+
+          <div>
+            <strong id="days">00</strong>
+            <span>Days</span>
+          </div>
+
+          <div>
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+          </div>
+
+          <div>
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+          </div>
+
+          <div>
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         OUR STORY
+         =================================================== -->
+
+    <section
+      id="story"
+      class="section story"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            Our journey
+          </p>
+
+          <h2>
+            How it all began
+          </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+          <!-- STORY 1 -->
+
+          <article class="timeline-item reveal">
+
+            <div
+              class="timeline-photo
+                     placeholder-photo
+                     photo-1"
+            ></div>
+
+            <div class="timeline-copy">
+
+              <span>2024</span>
+
+              <h3>
+                The First Hello
+              </h3>
+
+              <p>
+                One ordinary day became the beginning
+                of a story neither of us knew we were
+                waiting for.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- STORY 2 -->
+
+          <article
+            class="timeline-item
+                   reverse
+                   reveal"
+          >
+
+            <div
+              class="timeline-photo
+                     placeholder-photo
+                     photo-2"
+            ></div>
+
+            <div class="timeline-copy">
+
+              <span>2025</span>
+
+              <h3>
+                Our Favorite Chapter
+              </h3>
+
+              <p>
+                Through adventures, quiet moments,
+                laughter and challenges, we learned
+                what it means to choose each other
+                every day.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- STORY 3 -->
+
+          <article class="timeline-item reveal">
+
+            <div
+              class="timeline-photo
+                     placeholder-photo
+                     photo-3"
+            ></div>
+
+            <div class="timeline-copy">
+
+              <span>2026</span>
+
+              <h3>
+                The Question
+              </h3>
+
+              <p>
+                With a little courage and a lot of love,
+                forever became a question with the
+                easiest answer: yes.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         WEDDING DETAILS
+         =================================================== -->
+
+    <section
+      id="details"
+      class="section details"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            Save the date
+          </p>
+
+          <h2>
+            Wedding Details
+          </h2>
+
+        </div>
+
+
+        <div class="detail-grid">
+
+
+          <!-- CEREMONY -->
+
+          <article class="detail-card reveal">
+
+            <div class="detail-icon">
+              ✦
+            </div>
+
+            <p class="eyebrow">
+              The Ceremony
+            </p>
+
+            <h3>
+              28 September 2026
+            </h3>
+
+            <p>
+              8:30 AM
+            </p>
+
+            <p>
+              Nuestra Senora Del Carmen
+              <br>
+              BUSCO, Butong, Quezon, Bukidnon
+            </p>
+
+            <a
+              href="https://maps.google.com/?q=Nuestra%20Senora%20Del%20Carmen%2C%20BUSCO%2C%20Butong%2C%20Quezon%2C%20Bukidnon"
+              target="_blank"
+              rel="noopener"
+            >
+              View on Map ↗
+            </a>
+
+          </article>
+
+
+          <!-- RECEPTION -->
+
+          <article class="detail-card reveal">
+
+            <div class="detail-icon">
+              ♡
+            </div>
+
+            <p class="eyebrow">
+              The Reception
+            </p>
+
+            <h3>
+              11:00 AM
+            </h3>
+
+            <p>
+              Casa Maria
+              <br>
+              Purok 7, Butong, Quezon, Bukidnon
+            </p>
+
+            <div class="attire-section">
+
+              <p class="attire">
+                Formal Attire
+              </p>
+
+              <div class="dusty-blue">
+
+                <p class="dusty-blue-title">
+                  In the shade of dusty blue
+                </p>
+
+                <div class="dusty-blue-colors">
+                  <span class="dusty-blue-circle blue-1"></span>
+                  <span class="dusty-blue-circle blue-2"></span>
+                  <span class="dusty-blue-circle blue-3"></span>
+                  <span class="dusty-blue-circle blue-4"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <a
+              href="https://maps.google.com/?q=Casa%20Maria%2C%20Purok%207%2C%20Butong%2C%20Quezon%2C%20Bukidnon"
+              target="_blank"
+              rel="noopener"
+            >
+              View on Map ↗
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         GALLERY — 37 UNIQUE PRE-NUP PHOTOS
+         =================================================== -->
+
+    <section
+      class="section gallery-section"
+      id="gallery"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            Our pre-nup shoot
+          </p>
+
+          <h2>
+            Before forever
+          </h2>
+
+        </div>
+
+
+        <div
+          class="cinematic-gallery reveal"
+          id="gallerySlider"
+        >
+
+
+          <!-- PHOTO 01 -->
+          <div class="gallery-slide active">
+            <div class="gallery-placeholder g1"></div>
+            <div class="slide-caption">
+              Our beginning
+            </div>
+          </div>
+
+
+          <!-- PHOTO 02 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g2"></div>
+            <div class="slide-caption">
+              A day to remember
+            </div>
+          </div>
+
+
+          <!-- PHOTO 03 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g3"></div>
+            <div class="slide-caption">
+              Just us
+            </div>
+          </div>
+
+
+          <!-- PHOTO 04 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g4"></div>
+            <div class="slide-caption">
+              Side by side
+            </div>
+          </div>
+
+
+          <!-- PHOTO 05 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g5"></div>
+            <div class="slide-caption">
+              Almost forever
+            </div>
+          </div>
+
+
+          <!-- PHOTO 06 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g6"></div>
+            <div class="slide-caption">
+              Golden hour
+            </div>
+          </div>
+
+
+          <!-- PHOTO 07 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g7"></div>
+            <div class="slide-caption">
+              A quiet promise
+            </div>
+          </div>
+
+
+          <!-- PHOTO 08 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g8"></div>
+            <div class="slide-caption">
+              In this moment
+            </div>
+          </div>
+
+
+          <!-- PHOTO 09 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g9"></div>
+            <div class="slide-caption">
+              Love in every frame
+            </div>
+          </div>
+
+
+          <!-- PHOTO 10 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g10"></div>
+            <div class="slide-caption">
+              Our favorite view
+            </div>
+          </div>
+
+
+          <!-- PHOTO 11 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g11"></div>
+            <div class="slide-caption">
+              Hand in hand
+            </div>
+          </div>
+
+
+          <!-- PHOTO 12 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g12"></div>
+            <div class="slide-caption">
+              A little laughter
+            </div>
+          </div>
+
+
+          <!-- PHOTO 13 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g13"></div>
+            <div class="slide-caption">
+              Where we belong
+            </div>
+          </div>
+
+
+          <!-- PHOTO 14 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g14"></div>
+            <div class="slide-caption">
+              The sweetest chapter
+            </div>
+          </div>
+
+
+          <!-- PHOTO 15 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g15"></div>
+            <div class="slide-caption">
+              Together, always
+            </div>
+          </div>
+
+
+          <!-- PHOTO 16 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g16"></div>
+            <div class="slide-caption">
+              A day made ours
+            </div>
+          </div>
+
+
+          <!-- PHOTO 17 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g17"></div>
+            <div class="slide-caption">
+              Closer to forever
+            </div>
+          </div>
+
+
+          <!-- PHOTO 18 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g18"></div>
+            <div class="slide-caption">
+              Our shared adventure
+            </div>
+          </div>
+
+
+          <!-- PHOTO 19 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g19"></div>
+            <div class="slide-caption">
+              The way you look at me
+            </div>
+          </div>
+
+
+          <!-- PHOTO 20 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g20"></div>
+            <div class="slide-caption">
+              Forever starts here
+            </div>
+          </div>
+
+
+          <!-- PHOTO 21 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g21"></div>
+            <div class="slide-caption">
+              Every moment with you
+            </div>
+          </div>
+
+
+          <!-- PHOTO 22 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g22"></div>
+            <div class="slide-caption">
+              A love worth remembering
+            </div>
+          </div>
+
+
+          <!-- PHOTO 23 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g23"></div>
+            <div class="slide-caption">
+              Our little world
+            </div>
+          </div>
+
+
+          <!-- PHOTO 24 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g24"></div>
+            <div class="slide-caption">
+              In your arms
+            </div>
+          </div>
+
+
+          <!-- PHOTO 25 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g25"></div>
+            <div class="slide-caption">
+              Moments like this
+            </div>
+          </div>
+
+
+          <!-- PHOTO 26 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g26"></div>
+            <div class="slide-caption">
+              Love and laughter
+            </div>
+          </div>
+
+
+          <!-- PHOTO 27 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g27"></div>
+            <div class="slide-caption">
+              Written in the stars
+            </div>
+          </div>
+
+
+          <!-- PHOTO 28 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g28"></div>
+            <div class="slide-caption">
+              A beautiful memory
+            </div>
+          </div>
+
+
+          <!-- PHOTO 29 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g29"></div>
+            <div class="slide-caption">
+              You and me
+            </div>
+          </div>
+
+
+          <!-- PHOTO 30 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g30"></div>
+            <div class="slide-caption">
+              Our forever story
+            </div>
+          </div>
+
+
+          <!-- PHOTO 31 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g31"></div>
+            <div class="slide-caption">
+              Side by side, always
+            </div>
+          </div>
+
+
+          <!-- PHOTO 32 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g32"></div>
+            <div class="slide-caption">
+              The moments we keep
+            </div>
+          </div>
+
+
+          <!-- PHOTO 33 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g33"></div>
+            <div class="slide-caption">
+              Our happiest days
+            </div>
+          </div>
+
+
+          <!-- PHOTO 34 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g34"></div>
+            <div class="slide-caption">
+              Almost our forever
+            </div>
+          </div>
+
+
+          <!-- PHOTO 35 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g35"></div>
+            <div class="slide-caption">
+              One beautiful journey
+            </div>
+          </div>
+
+
+          <!-- PHOTO 36 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g36"></div>
+            <div class="slide-caption">
+              Forever in the making
+            </div>
+          </div>
+
+
+          <!-- PHOTO 37 -->
+          <div class="gallery-slide">
+            <div class="gallery-placeholder g37"></div>
+            <div class="slide-caption">
+              Until forever
+            </div>
+          </div>
+
+
+          <!-- =================================================
+               GALLERY CONTROLS
+               ================================================= -->
+
+          <button
+            class="gallery-arrow prev"
+            id="prevSlide"
+            type="button"
+            aria-label="Previous photo"
+          >
+            ‹
+          </button>
+
+
+          <button
+            class="gallery-arrow next"
+            id="nextSlide"
+            type="button"
+            aria-label="Next photo"
+          >
+            ›
+          </button>
+
+
+          <div
+            class="gallery-progress"
+            id="galleryProgress"
+          ></div>
+
+
+          <div class="gallery-count">
+
+            <span id="currentSlide">
+              01
+            </span>
+
+            /
+
+            <span id="totalSlides">
+              37
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p class="gallery-hint">
+          Our pre-nup moments · Swipe or use the
+          arrows · Tap a photo to view fullscreen
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+        PARENTS & PRINCIPAL SPONSORS
+        =================================================== -->
+
+    <section class="section wedding-party">
+
+      <div class="container">
+
+        <!-- =========================
+            PARENTS
+            ========================= -->
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            With the love and blessing of our families
+          </p>
+
+          <h2>
+            Our Parents
+          </h2>
+
+        </div>
+
+
+        <div class="parents-grid">
+
+
+          <!-- BRIDE / FEMALE SIDE -->
+
+          <div class="parents-column reveal">
+
+            <p class="party-side">
+              Parents of the Bride
+            </p>
+
+            <div class="parent-person">
+              <span>Father</span>
+              <h3>
+                Mr. Emiejoy S. Saplina
+              </h3>
+            </div>
+
+            <div class="parent-person">
+              <span>Mother</span>
+              <h3>
+                Mrs. Rosa S. Saplina
+              </h3>
+            </div>
+
+          </div>
+
+
+          <!-- GROOM / MALE SIDE -->
+
+          <div class="parents-column reveal">
+
+            <p class="party-side">
+              Parents of the Groom
+            </p>
+
+            <div class="parent-person">
+              <span>Father</span>
+              <h3>
+                Mr. George A. Montalban
+              </h3>
+            </div>
+
+            <div class="parent-person">
+              <span>Mother</span>
+              <h3>
+                Ms. Jean G. Dulla
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+            PRINCIPAL SPONSORS
+            ========================= -->
+
+        <div class="section-heading reveal sponsors-heading">
+
+          <p class="eyebrow">
+            With grateful hearts
+          </p>
+
+          <h2>
+            Principal Sponsors
+          </h2>
+
+        </div>
+
+
+        <div class="sponsors-grid">
+
+
+          <!-- FEMALE / LEFT COLUMN -->
+
+          <div class="sponsors-column reveal">
+
+            <p class="party-side">
+              Female Sponsors
+            </p>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Aive Bueno
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Cristie Somoso
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Ernelita Advincula
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Estrella L. Cosep
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Helda Leones
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Jelliza Tagalyo
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Jenny Vie Nemenzo
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Laura Canencia
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Ma. Nela T. Noveros
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Marivic T. Aliponga
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Maria Isabel Catague
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Maria M. Lobostro
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Maria Victoria P. Velasco
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Mildred M. Gilbero
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Nara Dura
+              </h3>
+            </div>
+
+                        <div class="sponsor-person">
+              <h3>
+                Mrs. Neda Capanay
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Nelly Alejan
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mrs. Remie S. Manggas
+              </h3>
+            </div>
+
+          </div>
+
+
+          <!-- MALE / RIGHT COLUMN -->
+
+          <div class="sponsors-column reveal">
+
+            <p class="party-side">
+              Male Sponsors
+            </p>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Alfredo Gilbero
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Benjie Nemenzo
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Cesar Sibog
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Dindo Mahinay
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Elmer L. Cosep
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Elmer Manggas
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Fernando Sibog
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Kag. Balong Gargar
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Kag. Dante P. Luces
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Kag. Wilson Noveros
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Kap. Nehru P. Tan
+
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Nonoy Lobostro
+              </h3>
+            </div>
+
+            <div class="sponsor-person">
+              <h3>
+                Mr. Recardo Sibog
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+        SECONDARY SPONSORS & CHILDREN OF THE ENTOURAGE
+        =================================================== -->
+
+    <section class="section secondary-sponsors">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            With love and joyful hearts
+          </p>
+
+          <h2>
+            Secondary Sponsors
+          </h2>
+
+        </div>
+
+
+        <!-- =========================
+            CANDLE SPONSORS
+            ========================= -->
+
+        <div class="secondary-group reveal">
+
+          <p class="party-side">
+            Candle Sponsors
+          </p>
+
+          <div class="secondary-people">
+
+            <div class="secondary-person">
+              <span>Candle Sponsor</span>
+              <h3>Mr. Melvin Cosep</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Candle Sponsor</span>
+              <h3>Ms. April Joy Verano</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+            CORD SPONSORS
+            ========================= -->
+
+        <div class="secondary-group reveal">
+
+          <p class="party-side">
+            Cord Sponsors
+          </p>
+
+          <div class="secondary-people">
+
+            <div class="secondary-person">
+              <span>Cord Sponsor</span>
+              <h3>Mr. Ronel S. Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Cord Sponsor</span>
+              <h3>Mrs. Caren Mae C. Saplina</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+            VEIL SPONSORS
+            ========================= -->
+
+        <div class="secondary-group reveal">
+
+          <p class="party-side">
+            Veil Sponsors
+          </p>
+
+          <div class="secondary-people">
+
+            <div class="secondary-person">
+              <span>Veil Sponsor</span>
+              <h3>Mr. Alfred M. Gilbero</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Veil Sponsor</span>
+              <h3>Mrs. Agnes Gilbero</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+            BEARERS
+            ========================= -->
+
+        <div class="secondary-group reveal">
+
+          <p class="party-side">
+            Bearers
+          </p>
+
+          <div class="bearers-grid">
+
+            <div class="secondary-person">
+              <span>Ring Bearer</span>
+              <h3>Art Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Bible Bearer</span>
+              <h3>Kervy Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Coin Bearer</span>
+              <h3>Xander Gilbero</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+            LITTLE GROOM & LITTLE BRIDE
+            ========================= -->
+
+        <div class="secondary-group reveal">
+
+          <p class="party-side">
+            Little Ones
+          </p>
+
+          <div class="bearers-grid">
+
+            <div class="secondary-person">
+              <span>Little Groom</span>
+              <h3>Kyle Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Little Bride</span>
+              <h3>Akeisha Gilbero</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+            FLOWER GIRLS
+            ========================= -->
+
+        <div class="secondary-group reveal">
+
+          <p class="party-side">
+            Flower Girls
+          </p>
+
+          <div class="flower-girls">
+
+            <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Jeshiel Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Stephie Tanya Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Riyan Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Loren Saplina</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Janila Antonio</h3>
+            </div>
+
+            <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Princess Mae Montalban</h3>
+            </div>
+
+                        <div class="secondary-person">
+              <span>Flower Girl</span>
+              <h3>Anicabel Llamoso</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ENTOURAGE
+         =================================================== -->
+
+    <section class="section entourage">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            With our loved ones
+          </p>
+
+          <h2>
+            Entourage
+          </h2>
+
+        </div>
+
+
+        <div class="people-grid">
+
+
+          <div class="person reveal">
+            <div class="person-photo p1"></div>
+            <span>Maid of Honor</span>
+            <h3>Collyn S. Saldivar</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p2"></div>
+            <span>Best Man</span>
+            <h3>Jhomar T. Montalban</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p3"></div>
+            <span>Bridesmaid</span>
+            <h3>Myka S. Llamoso</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p4"></div>
+            <span>Bridesmaid</span>
+            <h3>Heinzelee S. Saldivar</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p5"></div>
+            <span>Bridesmaid</span>
+            <h3>Desirie D. Montalban</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p6"></div>
+            <span>Bridesmaid</span>
+            <h3>Joanna M. Gilbero</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p7"></div>
+            <span>Bridesmaid</span>
+            <h3>Angel S. Llamoso</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p8"></div>
+            <span>Bridesmaid</span>
+            <h3>Jessica G. SAplina</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p9"></div>
+            <span>Groomsman</span>
+            <h3>Mike Arthur M. Gilbero</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p10"></div>
+            <span>Groomsman</span>
+            <h3>Marlou M. Gilbero</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p11"></div>
+            <span>Groomsman</span>
+            <h3>Ace Gilbert M. Gilbero</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p12"></div>
+            <span>Groomsman</span>
+            <h3>Jayvee M. Gilbero</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p13"></div>
+            <span>Groomsman</span>
+            <h3>Mike S. Llamoso</h3>
+          </div>
+
+
+          <div class="person reveal">
+            <div class="person-photo p14"></div>
+            <span>Groomsman</span>
+            <h3>Ralph G. Saplina</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROGRAM
+         =================================================== -->
+
+    <section class="section program">
+
+      <div class="container narrow">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            The celebration
+          </p>
+
+          <h2>
+            Wedding Program
+          </h2>
+
+        </div>
+
+
+        <div class="program-list">
+
+          <div class="program-row reveal">
+            <time>8:20 AM</time>
+            <span>Guest Arrival</span>
+          </div>
+
+
+          <div class="program-row reveal">
+            <time>8:30 AM</time>
+            <span>Wedding Ceremony</span>
+          </div>
+
+
+          <div class="program-row reveal">
+            <time>11:30 PM</time>
+            <span>Cocktail Hour</span>
+          </div>
+
+          <div class="program-row reveal">
+            <time>11:20 PM</time>
+            <span>First Dance</span>
+          </div>
+
+          <div class="program-row reveal">
+            <time>12:00 AM</time>
+            <span>Reception &amp; Dinner</span>
+          </div>
+
+          <div class="program-row reveal">
+            <time>12:30 PM</time>
+            <span>Celebration</span>
+          </div>
+          
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RSVP
+         =================================================== -->
+
+    <section
+      class="section rsvp"
+      id="rsvp"
+    >
+
+      <div class="container narrow reveal">
+
+        <p class="eyebrow">
+          We hope you can join us
+        </p>
+
+        <h2>
+          Will you celebrate with us?
+        </h2>
+
+
+        <form id="rsvpForm">
+
+
+          <div class="field">
+
+            <label for="guestName">
+              Full Name
+            </label>
+
+            <input
+              id="guestName"
+              required
+              placeholder="Your name"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Will you attend?
+            </label>
+
+
+            <div class="choice-row">
+
+              <label class="choice">
+
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="Joyfully Accepts"
+                  required
+                >
+
+                <span>
+                  Joyfully Accepts
+                </span>
+
+              </label>
+
+
+              <label class="choice">
+
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="Regretfully Declines"
+                >
+
+                <span>
+                  Regretfully Declines
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="guests">
+              Number of Guests
+            </label>
+
+            <select id="guests">
+
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="message">
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Leave us a little note..."
+            ></textarea>
+
+          </div>
+
+
+          <button
+            class="gold-btn"
+            type="submit"
+          >
+            Send RSVP
+          </button>
+
+        </form>
+
+
+        <div class="rsvp-contact">
+
+          <p>
+            Prefer to contact us directly?
+          </p>
+
+          <a href="mailto:montalbangeordanlou@gmail.com">
+            montalbangeordanlou@gmail.com
+          </a>
+
+          <a href="tel:+639639839550">
+            0963 983 9550
+          </a>
+
+        </div>
+
+
+        <div
+          id="rsvpSuccess"
+          class="success-message"
+          hidden
+        >
+          Thank you! Your RSVP has been received. ♡
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         GUESTBOOK
+         =================================================== -->
+
+    <section class="section guestbook">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            A note from you
+          </p>
+
+          <h2>
+            Guestbook
+          </h2>
+
+        </div>
+
+
+        <div class="messages">
+
+          <blockquote class="reveal">
+
+            “Wishing you both a lifetime of laughter,
+            love and beautiful adventures together.”
+
+            <cite>
+              — With love, your family
+            </cite>
+
+          </blockquote>
+
+
+          <blockquote class="reveal">
+
+            “May this new chapter be even more wonderful
+            than everything that came before it.”
+
+            <cite>
+              — Your friends
+            </cite>
+
+          </blockquote>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         GIFT REGISTRY
+         =================================================== -->
+
+    <section class="section registry">
+
+      <div class="container narrow reveal">
+
+        <p class="eyebrow">
+          Your presence is our present
+        </p>
+
+        <h2>
+          Gift Registry
+        </h2>
+
+        <p>
+          Your presence at our wedding is more than
+          enough. If you wish to bless us with a gift,
+          we would be grateful for your kindness.
+        </p>
+
+
+        <div class="registry-buttons">
+
+          <button
+            class="outline-btn"
+            data-copy="09171234567"
+            type="button"
+          >
+            Copy GCash Number
+          </button>
+
+
+          <button
+            class="outline-btn"
+            data-copy="09181234567"
+            type="button"
+          >
+            Copy Maya Number
+          </button>
+
+        </div>
+
+
+        <small id="copyStatus"></small>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CLOSING
+         =================================================== -->
+
+    <footer class="closing">
+
+      <div class="closing-image"></div>
+
+      <div class="closing-overlay"></div>
+
+
+      <div class="closing-content reveal">
+
+        <p class="eyebrow">
+          Forever starts here
+        </p>
+
+        <h2>
+          Geordan
+          <span>&amp;</span>
+          Angelene
+        </h2>
+
+        <p class="script">
+          Thank you for being part of our story.
+        </p>
+
+        <p class="closing-date">
+          28 · 09 · 2026
+        </p>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- =====================================================
+       LIGHTBOX
+       ===================================================== -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+  >
+
+    <button
+      id="closeLightbox"
+      type="button"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <div
+      class="lightbox-image"
+      id="lightboxImage"
+    ></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
