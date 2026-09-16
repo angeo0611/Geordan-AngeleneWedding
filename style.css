@@ -447,12 +447,12 @@ a{
   position: absolute;
 
   left: 50%;
-  top: 18%;
+  top: 10%;
 
   width: 92%;
   height: auto;
 
-  object-fit: contain;
+  object-fit: fill;
 
   opacity: 1;
   visibility: visible;
