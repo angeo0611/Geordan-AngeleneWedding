@@ -1042,7 +1042,7 @@ a{
   font-size: 1em;
   
   /* Force zero letter-spacing on script font elements */
-  letter-spacing: 0 !important;
+  letter-spacing: -0.05em !important;
   display: inline-block;
 }
 
