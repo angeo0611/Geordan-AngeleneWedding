@@ -1017,39 +1017,40 @@ a{
   }
 }
 
-
 .hero h1 {
-  /* Fix line height and font size clamp */
-  font: 700 clamp(45px, 8vw, 90px)/1.2 var(--serif);
-  
+  /* Replace shorthand font to prevent tracking inheritance bugs */
+  font-family: var(--serif);
+  font-size: clamp(40px, 7vw, 85px);
+  font-weight: 700;
+  line-height: 1.2;
+
   margin: 10px 0 24px;
-
-  /* Explicitly reset letter-spacing to 0 */
-  letter-spacing: 0 !important;
-
-  /* BLACK NAMES */
   color: #000;
 
-  /* SHADOW */
+  /* Force zero letter-spacing on the heading and all children */
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+
   text-shadow:
     0 3px 8px rgba(255,255,255,.55),
     0 6px 16px rgba(0,0,0,.35);
+}
+
+/* Force every child tag inside h1 to drop letter spacing */
+.hero h1 * {
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
 }
 
 .hero h1 span,
 .closing h2 span {
   font-family: var(--script);
   font-size: 1em;
-  
-  /* Force zero letter-spacing on script font elements */
-  letter-spacing: -0.05em !important;
   display: inline-block;
 }
 
-/* Ensure ampersand stays centered and properly spaced */
 .hero h1 .name-ampersand {
   color: #e4cda0;
-  letter-spacing: 0 !important;
   margin: 0 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,.30);
 }
