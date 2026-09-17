@@ -1159,7 +1159,7 @@ a{
 .intro p:not(.eyebrow){
   max-width:600px;
   margin:auto;
-  color:var(--muted)
+  color:var(--gold)
 }
 
 /* =========================================
