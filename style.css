@@ -1046,7 +1046,7 @@ a{
     brightness(.78)
     saturate(.75)
     contrast(1.05);
-  opacity:.50;
+  opacity:.30;
 }
 
 .hero-overlay,
@@ -1123,7 +1123,7 @@ a{
 .hero-date{
   font:
     600 13px var(--sans);
-
+  color: #000;
   letter-spacing:.35em;
   margin-top:25px
 }
@@ -1159,7 +1159,7 @@ a{
 .intro p:not(.eyebrow){
   max-width:600px;
   margin:auto;
-  color:var(--gold)
+  color:var(--mute)
 }
 
 /* =========================================
