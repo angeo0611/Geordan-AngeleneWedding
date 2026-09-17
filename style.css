@@ -10,8 +10,6 @@
     --sans:"DM Sans",sans-serif;
     --script:"Great Vibes",cursive;
 }
-/* HERO NAMES — REFERENCE LAYOUT */
-
 .hero-names {
     display: flex;
     flex-direction: column;
@@ -23,30 +21,17 @@
     margin: 0;
     padding: 0;
 
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-    color: #111;
-
+    /* Keep your original font */
     letter-spacing: 8px;
     line-height: 1;
 }
 
-/* GEORDAN */
-
 .name-geordan {
     display: block;
-    font-size: clamp(45px, 6vw, 72px);
 }
-
-/* CENTER AMPERSAND */
 
 .name-ampersand {
     display: block;
-
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(60px, 7vw, 90px);
-
-    color: #b1844b;
 
     letter-spacing: 0;
     line-height: 1.2;
@@ -54,11 +39,8 @@
     margin: 10px 0;
 }
 
-/* ANGELENE */
-
 .name-angelene {
     display: block;
-    font-size: clamp(40px, 5.5vw, 68px);
 }
 /* =========================================================
    RESET
