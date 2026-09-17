@@ -1075,7 +1075,7 @@ a{
 .hero h1{
   font:
     500 clamp(70px,13vw,150px)/.75 var(--serif);
-
+  color:#e4cda0
   margin:10px 0 24px;
   letter-spacing:-.05em
 }
@@ -1084,6 +1084,7 @@ a{
 .closing h2 span{
   font-family:var(--script);
   font-size:.6em;
+
 }
 
 .script{
