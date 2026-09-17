@@ -119,13 +119,16 @@ a{
     align-items: center;
     justify-content: center;
     text-align: center;
+    line-height: 1.1; /* Reduces gap between lines */
   }
-.hero h1 p {
+
+  .hero h1 p {
     margin: 0; /* Removes default paragraph spacing */
   }
+
   .hero h1 span {
     display: block;
-    margin: 0.1em 0; /* Adjust vertical spacing between lines as needed */
+    margin: 0.1em 0; /* Tightens the top and bottom space around & */
   }
 }
 
