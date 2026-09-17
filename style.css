@@ -1018,71 +1018,16 @@ a{
 }
 
 
-/* =========================================
-   HERO
-   ========================================= */
+.hero h1 {
+  font: 700 clamp(50px, 10vw, 110px)/1.2 var(--serif); /* Reduced font clamp size and increased line-height from .75 to 1.2 */
 
-.hero{
-  height:100svh;
-  min-height:650px;
-  position:relative;
-  display:grid;
-  place-items:center;
-  color:white;
-  text-align:center;
-  overflow:hidden;
-}
+  margin: 10px 0 24px;
 
-.hero-image,
-.closing-image{
-  position:absolute;
-  inset:0;
-
-  background-image:url("images/hero.jpg");
-  background-size:cover;
-  background-position:center;
-
-  animation:
-    slowZoom 16s ease-in-out infinite alternate;
-
-  filter:
-    brightness(.78)
-    saturate(.75)
-    contrast(1.05);
-
-  opacity:.50;
-}
-
-.hero-overlay,
-.closing-overlay{
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(241,231,220,.55),
-      rgba(124,108,91,.45) 42%,
-      rgba(44,35,26,.62)
-    );
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-}
-
-.hero h1{
-  font:
-    700 clamp(70px,13vw,150px)/.75 var(--serif);
-
-  margin:10px 0 24px;
-
-  /* INCREASE LETTER SPACING */
-  letter-spacing:1.0em;
+  /* FIX: Reset letter-spacing to normal so script letters connect properly without colliding */
+  letter-spacing: normal; 
 
   /* BLACK NAMES */
-  color:#000;
+  color: #000;
 
   /* SHADOW */
   text-shadow:
@@ -1091,51 +1036,10 @@ a{
 }
 
 .hero h1 span,
-.closing h2 span{
-  font-family:var(--script);
-  font-size:.6em;
-}
-
-/* =========================================
-   AMPERSAND
-   ========================================= */
-
-.hero h1 .name-ampersand{
-  color:#e4cda0;
-
-  text-shadow:
-    0 2px 6px rgba(0,0,0,.30);
-}
-.script{
-  font:42px var(--script);
-  color:#e4cda0;
-}
-
-.hero-date{
-  font:
-    600 13px var(--sans);
-
-  letter-spacing:.35em;
-  margin-top:25px;
-}
-
-.scroll-cue{
-  display:inline-flex;
-  flex-direction:column;
-  gap:8px;
-
-  margin-top:80px;
-
-  text-decoration:none;
-
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.2em;
-}
-
-.scroll-cue span{
-  font-size:22px;
-  animation:bob 1.7s infinite;
+.closing h2 span {
+  font-family: var(--script);
+  font-size: 1em; /* Increased from .6em for better proportion */
+  display: inline-block; /* Helps handle line spacing cleanly */
 }
 /* =========================================
    INTRO
