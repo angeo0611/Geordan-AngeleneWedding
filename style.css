@@ -1075,9 +1075,10 @@ a{
 .hero h1{
   font:
     500 clamp(70px,13vw,150px)/.75 var(--serif);
-  color:#e4cda0
+ 
   margin:10px 0 24px;
-  letter-spacing:-.05em
+  letter-spacing:-.10em
+  color:#e4cda0
 }
 
 .hero h1 span,
