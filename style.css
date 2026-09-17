@@ -1067,24 +1067,32 @@ a{
   z-index:2;
 }
 
+/* =========================================
+   HERO NAMES
+   ========================================= */
+
 .hero h1{
-  font:
-    500 clamp(70px,13vw,150px)/.75 var(--serif);
-
   margin:10px 0 24px;
-  letter-spacing:-.10em;
 
-  /* NAMES */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  font:
+    700 clamp(70px,13vw,150px)/.85 var(--serif);
+
+  letter-spacing:-.04em;
+
   color:#000;
 
-  /* NAME SHADOW */
   text-shadow:
     0 3px 8px rgba(255,255,255,.55),
     0 6px 16px rgba(0,0,0,.35);
 }
 
-.hero h1 span,
-.closing h2 span{
+.hero h1 span{
+  display:block;
   font-family:var(--script);
   font-size:.6em;
 }
@@ -1095,6 +1103,10 @@ a{
 
 .hero h1 .name-ampersand{
   color:#e4cda0;
+
+  font-size:.42em;
+
+  margin:10px 0;
 
   text-shadow:
     0 2px 6px rgba(0,0,0,.30);
