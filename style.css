@@ -1016,7 +1016,51 @@ a{
     height: 62px;
   }
 }
+/* =========================================
+   HERO
+   ========================================= */
+.hero{
+  height:100svh;
+  min-height:650px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+.hero-image,
+.closing-image{
+  position:absolute;
+  inset:0;
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  animation:
+    slowZoom 16s ease-in-out infinite alternate;
+  filter:
+    brightness(.78)
+    saturate(.75)
+    contrast(1.05);
+  opacity:.50;
+}
+.hero-overlay,
+.closing-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(241,231,220,.55),
+      rgba(124,108,91,.45) 42%,
+      rgba(44,35,26,.62)
+    );
+}
+.hero-content{
+  position:relative;
+  z-index:2;
 
+}
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(40px, 7vw, 85px);
