@@ -26,12 +26,7 @@
     line-height: 1;
 }
 
-.name-geordan {
-    display: block;
-}
-
 .name-ampersand {
-    display: block;
 
     letter-spacing: 0;
     line-height: 1.2;
@@ -39,9 +34,6 @@
     margin: 10px 0;
 }
 
-.name-angelene {
-    display: block;
-}
 /* =========================================================
    RESET
 ========================================================= */
