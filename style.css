@@ -120,7 +120,9 @@ a{
     justify-content: center;
     text-align: center;
   }
-
+.hero h1 p {
+    margin: 0; /* Removes default paragraph spacing */
+  }
   .hero h1 span {
     display: block;
     margin: 0.1em 0; /* Adjust vertical spacing between lines as needed */
