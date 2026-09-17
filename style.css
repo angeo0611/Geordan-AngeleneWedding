@@ -1017,104 +1017,123 @@ a{
   }
 }
 /* =========================================
-   HERO
-   ========================================= */
+   HERO
+   ========================================= */
+
 .hero{
-  height:100svh;
-  min-height:650px;
-  position:relative;
-  display:grid;
-  place-items:center;
-  color:white;
-  text-align:center;
-  overflow:hidden;
+  height:100svh;
+  min-height:650px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  color:white;
+  text-align:center;
+  overflow:hidden;
 }
 
 .hero-image,
 .closing-image{
-  position:absolute;
-  inset:0;
-  background-image:url("images/hero.jpg");
-  background-size:cover;
-  background-position:center;
-  animation:
-    slowZoom 16s ease-in-out infinite alternate;
-  filter:
-    brightness(.78)
-    saturate(.75)
-    contrast(1.05);
-  opacity:.50;
+  position:absolute;
+  inset:0;
+
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+
+  animation:
+    slowZoom 16s ease-in-out infinite alternate;
+
+  filter:
+    brightness(.78)
+    saturate(.75)
+    contrast(1.05);
+
+  opacity:.50;
 }
 
 .hero-overlay,
 .closing-overlay{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(241,231,220,.55),
-      rgba(124,108,91,.45) 42%,
-      rgba(44,35,26,.62)
-    );
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(241,231,220,.55),
+      rgba(124,108,91,.45) 42%,
+      rgba(44,35,26,.62)
+    );
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
+  position:relative;
+  z-index:2;
 }
 
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(40px, 7vw, 85px);
-  font-weight: 700;
-  line-height: 1.05;
+.hero h1{
+  font:
+    700 clamp(70px,13vw,150px)/.75 var(--serif);
 
-  margin: 10px 0 24px;
-  padding: 0;
+  margin:10px 0 24px;
 
-  color: #000;
+  /* INCREASE LETTER SPACING */
+  letter-spacing:1.0em;
 
-  letter-spacing: -1px !important;
-  word-spacing: 0 !important;
+  /* BLACK NAMES */
+  color:#000;
 
-  text-shadow:
-    0 3px 8px rgba(255,255,255,.55),
-    0 6px 16px rgba(0,0,0,.35);
+  /* SHADOW */
+  text-shadow:
+    0 3px 8px rgba(255,255,255,.55),
+    0 6px 16px rgba(0,0,0,.35);
 }
 
-/* =========================================
-   HERO NAMES
-   ========================================= */
-
-.hero h1 span {
-  font-family: var(--script);
-  font-size: 1em;
-  font-weight: 700;
-
-  display: inline;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
-  letter-spacing: -1px !important;
-  word-spacing: 0 !important;
+.hero h1 span,
+.closing h2 span{
+  font-family:var(--script);
+  font-size:.6em;
 }
 
 /* =========================================
-   GOLD AMPERSAND
-   ========================================= */
+   AMPERSAND
+   ========================================= */
 
-.hero h1 .name-ampersand {
-  color: #e4cda0;
+.hero h1 .name-ampersand{
+  color:#e4cda0;
 
-  margin: 0 5px !important;
-  padding: 0 !important;
+  text-shadow:
+    0 2px 6px rgba(0,0,0,.30);
+}
+.script{
+  font:42px var(--script);
+  color:#e4cda0;
+}
 
-  letter-spacing: 0 !important;
+.hero-date{
+  font:
+    600 13px var(--sans);
 
-  text-shadow:
-    0 2px 6px rgba(0,0,0,.30);
+  letter-spacing:.35em;
+  margin-top:25px;
+}
+
+.scroll-cue{
+  display:inline-flex;
+  flex-direction:column;
+  gap:8px;
+
+  margin-top:80px;
+
+  text-decoration:none;
+
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+}
+
+.scroll-cue span{
+  font-size:22px;
+  animation:bob 1.7s infinite;
 }
 /* =========================================
    INTRO
