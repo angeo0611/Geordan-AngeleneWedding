@@ -94,6 +94,15 @@
 
     font-weight: 600;
 }
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('your-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.hero-text {
+  color: #f1c40f; /* Or your current gold color */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
 /* =========================================================
    RESET
 ========================================================= */
