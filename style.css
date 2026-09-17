@@ -106,7 +106,18 @@ h3{
 a{
     color:inherit;
 }
+/* General styling for the names container */
+.hero-names {
+  text-align: center;
+}
 
+/* Mobile specific styles (screens 768px wide or smaller) */
+@media (max-width: 768px) {
+  .hero-names p {
+    text-align: center;
+    margin: 0.5rem 0; /* Adjust spacing between lines as needed */
+  }
+}
 
 /* =========================================================
    BUTTONS
