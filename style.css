@@ -1078,7 +1078,7 @@ a{
 
   color: #000;
 
-  letter-spacing: -1px !important;
+  letter-spacing: -0.05px !important;
   word-spacing: 0 !important;
 
   text-shadow:
@@ -1100,7 +1100,7 @@ a{
   margin: 0 !important;
   padding: 0 !important;
 
-  letter-spacing: -15px !important;
+  letter-spacing: -0.05px !important;
   word-spacing: 0 !important;
 }
 
