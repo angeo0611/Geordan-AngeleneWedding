@@ -1374,4 +1374,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-}); check this
+});
