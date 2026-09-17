@@ -106,16 +106,24 @@ h3{
 a{
     color:inherit;
 }
-/* General styling for the names container */
-.hero-names {
+/* Hero section name styling */
+.hero h1 {
   text-align: center;
 }
 
-/* Mobile specific styles (screens 768px wide or smaller) */
+/* Mobile specific layout */
 @media (max-width: 768px) {
-  .hero-names p {
+  .hero h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin: 0.5rem 0; /* Adjust spacing between lines as needed */
+  }
+
+  .hero h1 span {
+    display: block;
+    margin: 0.2em 0; /* Adjust vertical spacing between lines as needed */
   }
 }
 
