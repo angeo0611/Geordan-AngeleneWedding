@@ -1079,7 +1079,7 @@ a{
   margin:10px 0 24px;
 
   /* INCREASE LETTER SPACING */
-  letter-spacing:-.00em;
+  letter-spacing:1.0em;
 
   /* BLACK NAMES */
   color:#000;
