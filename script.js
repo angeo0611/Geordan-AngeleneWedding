@@ -1,1355 +1,1377 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  document.body.classList.add("no-scroll");
+  document.body.classList.add("no-scroll");
 
-  const opening =
-    document.getElementById("opening");
+  const opening =
+    document.getElementById("opening");
 
-  const envelope =
-    document.getElementById("envelope");
+  const envelope =
+    document.getElementById("envelope");
 
-  const invitationCard =
-    document.querySelector(".invitation-card");
+  const invitationCard =
+    document.querySelector(".invitation-card");
 
-  const openButton =
-    document.getElementById("openInvitation");
+  const openButton =
+    document.getElementById("openInvitation");
 
-  const musicToggle =
-    document.getElementById("musicToggle");
+  const musicToggle =
+    document.getElementById("musicToggle");
 
-  let musicContext,
-      musicTimer,
-      musicStep = 0;
+  let musicContext,
+      musicTimer,
+      musicStep = 0;
 
 
-  /* =====================================================
-     ENVELOPE OPENING
-  ===================================================== */
+  /* =====================================================
+     ENVELOPE OPENING
+  ===================================================== */
 
-  function openInvitation() {
+  function openInvitation() {
 
-    if (!envelope || envelope.classList.contains("open")) {
-      return;
-    }
+    if (!envelope || envelope.classList.contains("open")) {
+      return;
+    }
 
+    /* -----------------------------------------------
+       TRIGGER MUSIC IMMEDIATELY ON USER GESTURE
+       Required for iOS/Android audio autoplay policies.
+    ----------------------------------------------- */
+    startMusic();
 
-    /* -----------------------------------------------
-       STEP 1
-       OPEN THE ENVELOPE
-    ----------------------------------------------- */
 
-    envelope.classList.add("open");
+    /* -----------------------------------------------
+       STEP 1: OPEN THE ENVELOPE
+    ----------------------------------------------- */
 
+    envelope.classList.add("open");
 
-    /* -----------------------------------------------
-       STEP 2
-       LET THE INSIDE FLAP FINISH ROTATING
 
-       At this point the outside flap has disappeared
-       and the inside flap has completed its rotation.
-    ----------------------------------------------- */
+    /* -----------------------------------------------
+       STEP 2: LET THE INSIDE FLAP FINISH ROTATING
+    ----------------------------------------------- */
 
-    setTimeout(() => {
+    setTimeout(() => {
 
-      if (!envelope) {
-        return;
-      }
+      if (!envelope) {
+        return;
+      }
 
-      envelope.classList.add("flap-opened");
+      envelope.classList.add("flap-opened");
 
-    }, 700);
+    }, 700);
 
 
-    /* -----------------------------------------------
-       STEP 3
-       BRING THE INVITATION CARD TO THE FRONT
+    /* -----------------------------------------------
+       STEP 3: BRING THE INVITATION CARD TO THE FRONT
+    ----------------------------------------------- */
 
-       This happens AFTER the inside flap is already
-       behind the envelope.
-    ----------------------------------------------- */
+    setTimeout(() => {
 
-    setTimeout(() => {
+      if (!envelope || !invitationCard) {
+        return;
+      }
 
-      if (!envelope || !invitationCard) {
-        return;
-      }
+      envelope.classList.add("card-in-front");
 
-      envelope.classList.add("card-in-front");
+      invitationCard.classList.add("card-pull");
 
-      invitationCard.classList.add("card-pull");
+    }, 900);
 
-    }, 900);
 
+    /* -----------------------------------------------
+       STEP 4: CENTER & ENLARGE INVITATION
+    ----------------------------------------------- */
 
-    /* -----------------------------------------------
-       STEP 4
-       CENTER & ENLARGE INVITATION
-    ----------------------------------------------- */
+    setTimeout(() => {
 
-    setTimeout(() => {
+      if (!invitationCard) {
+        return;
+      }
 
-      if (!invitationCard) {
-        return;
-      }
+      invitationCard.classList.remove("card-pull");
 
-      invitationCard.classList.remove("card-pull");
+      invitationCard.classList.add("card-display");
 
-      invitationCard.classList.add("card-display");
+    }, 3500);
 
-    }, 3500);
 
+    /* -----------------------------------------------
+       STEP 5: FADE OPENING & UNLOCK SCROLL
+    ----------------------------------------------- */
 
-    /* -----------------------------------------------
-       STEP 5
-       FADE OPENING & UNLOCK SCROLL
-    ----------------------------------------------- */
+    setTimeout(() => {
 
-    setTimeout(() => {
+      if (opening) {
+        opening.classList.add("opening-away");
+      }
 
-      if (opening) {
-        opening.classList.add("opening-away");
-      }
+      document.body.classList.remove("no-scroll");
 
-      document.body.classList.remove("no-scroll");
+    }, 5000);
 
-      startMusic();
 
-    }, 5000);
+    /* -----------------------------------------------
+       STEP 6: SHOW HERO CONTENT & START PETALS
+    ----------------------------------------------- */
 
+    setTimeout(() => {
 
-    /* -----------------------------------------------
-       STEP 6
-       SHOW HERO CONTENT & START PETALS
-    ----------------------------------------------- */
+      if (opening) {
+        opening.classList.add("opened");
+      }
 
-    setTimeout(() => {
+      createPetals(18);
 
-      if (opening) {
-        opening.classList.add("opened");
-      }
+    }, 13200);
 
-      createPetals(18);
 
-    }, 13200);
+    /* -----------------------------------------------
+       STEP 7: REMOVE TEMPORARY CARD
+    ----------------------------------------------- */
 
+    setTimeout(() => {
 
-    /* -----------------------------------------------
-       STEP 7
-       REMOVE TEMPORARY CARD
-    ----------------------------------------------- */
+      if (invitationCard) {
+        invitationCard.remove();
+      }
 
-    setTimeout(() => {
+    }, 13500);
+  }
 
-      if (invitationCard) {
-        invitationCard.remove();
-      }
 
-    }, 13500);
-  }
+  /* =====================================================
+     OPEN BUTTON
+  ===================================================== */
 
+  if (openButton) {
 
-  /* =====================================================
-     OPEN BUTTON
-  ===================================================== */
+    openButton.addEventListener(
+      "click",
+      openInvitation
+    );
 
-  if (openButton) {
+  }
 
-    openButton.addEventListener(
-      "click",
-      openInvitation
-    );
 
-  }
+  /* =====================================================
+     ENVELOPE CLICK / KEYBOARD
+  ===================================================== */
 
+  if (envelope) {
 
-  /* =====================================================
-     ENVELOPE CLICK / KEYBOARD
-  ===================================================== */
+    envelope.addEventListener(
+      "click",
+      openInvitation
+    );
 
-  if (envelope) {
+    envelope.addEventListener(
+      "keydown",
+      event => {
 
-    envelope.addEventListener(
-      "click",
-      openInvitation
-    );
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
 
-    envelope.addEventListener(
-      "keydown",
-      event => {
+          event.preventDefault();
 
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
+          openInvitation();
 
-          event.preventDefault();
+        }
 
-          openInvitation();
+      }
+    );
 
-        }
+  }
 
-      }
-    );
 
-  }
+  /* =====================================================
+     MUSIC
+  ===================================================== */
 
+  const weddingMusic =
+    document.getElementById("weddingMusic");
 
-  /* =====================================================
-     MUSIC
-  ===================================================== */
+  let musicPlaying = false;
 
-  const weddingMusic =
-    document.getElementById("weddingMusic");
 
-  let musicPlaying = false;
+  function startMusic() {
 
+    if (!weddingMusic) {
 
-  function startMusic() {
+      console.warn(
+        "weddingMusic was not found."
+      );
 
-    if (!weddingMusic) {
+      return;
+    }
 
-      console.warn(
-        "weddingMusic was not found."
-      );
 
-      return;
-    }
+    weddingMusic.volume = 0.35;
 
 
-    weddingMusic.volume = 0.35;
+    const playPromise =
+      weddingMusic.play();
 
 
-    const playPromise =
-      weddingMusic.play();
+    if (playPromise !== undefined) {
 
+      playPromise
+        .then(() => {
 
-    if (playPromise !== undefined) {
+          musicPlaying = true;
 
-      playPromise
-        .then(() => {
 
-          musicPlaying = true;
+          if (musicToggle) {
 
+            musicToggle.classList.add(
+              "playing"
+            );
 
-          if (musicToggle) {
+            musicToggle.innerHTML = "♫";
 
-            musicToggle.classList.add(
-              "playing"
-            );
+          }
 
-            musicToggle.innerHTML = "♫";
+        })
+        .catch(error => {
 
-          }
+          console.log(
+            "Music playback was blocked by browser policy:",
+            error
+          );
 
-        })
-        .catch(error => {
+          /* -----------------------------------------------
+             FALLBACK: UNLOCK AUDIO ON FIRST TOUCH/CLICK
+          ----------------------------------------------- */
+          const unlockAudio = () => {
 
-          console.log(
-            "Music playback was blocked:",
-            error
-          );
+            weddingMusic.play().then(() => {
 
-        });
+              musicPlaying = true;
 
-    }
+              if (musicToggle) {
 
-  }
+                musicToggle.classList.add(
+                  "playing"
+                );
 
+                musicToggle.innerHTML = "♫";
 
-  function stopMusic() {
+              }
 
-    if (!weddingMusic) {
-      return;
-    }
+            }).catch(e => console.log("Unlock failed:", e));
 
+            document.removeEventListener("touchstart", unlockAudio);
 
-    weddingMusic.pause();
+            document.removeEventListener("click", unlockAudio);
 
-    musicPlaying = false;
+          };
 
+          document.addEventListener("touchstart", unlockAudio, { once: true });
 
-    if (musicToggle) {
+          document.addEventListener("click", unlockAudio, { once: true });
 
-      musicToggle.classList.remove(
-        "playing"
-      );
+        });
 
-      musicToggle.innerHTML = "♫";
+    }
 
-    }
+  }
 
-  }
 
+  function stopMusic() {
 
-  if (musicToggle) {
+    if (!weddingMusic) {
+      return;
+    }
 
-    musicToggle.addEventListener(
-      "click",
-      event => {
 
-        event.stopPropagation();
+    weddingMusic.pause();
 
+    musicPlaying = false;
 
-        if (!weddingMusic) {
-          return;
-        }
 
+    if (musicToggle) {
 
-        if (weddingMusic.paused) {
+      musicToggle.classList.remove(
+        "playing"
+      );
 
-          startMusic();
+      musicToggle.innerHTML = "♫";
 
-        } else {
+    }
 
-          stopMusic();
+  }
 
-        }
 
-      }
-    );
+  if (musicToggle) {
 
-  }
+    musicToggle.addEventListener(
+      "click",
+      event => {
 
+        event.stopPropagation();
 
-  /* =====================================================
-     COUNTDOWN
-  ===================================================== */
 
-  const weddingDate =
-    new Date(
-      "September 28, 2026 8:30:00"
-    ).getTime();
+        if (!weddingMusic) {
+          return;
+        }
 
 
-  function updateCountdown() {
+        if (weddingMusic.paused) {
 
-    const distance =
-      weddingDate - Date.now();
+          startMusic();
 
+        } else {
 
-    if (distance <= 0) {
+          stopMusic();
 
-      const countdown =
-        document.getElementById(
-          "countdown"
-        );
+        }
 
+      }
+    );
 
-      if (countdown) {
+  }
 
-        countdown.innerHTML =
-          '<div style="grid-column:1/-1"><strong>Today is the day!</strong></div>';
 
-      }
+  /* =====================================================
+     COUNTDOWN
+  ===================================================== */
 
-      return;
-    }
+  const weddingDate =
+    new Date(
+      "September 28, 2026 8:30:00"
+    ).getTime();
 
 
-    const days =
-      Math.floor(
-        distance / 86400000
-      );
+  function updateCountdown() {
 
+    const distance =
+      weddingDate - Date.now();
 
-    const hours =
-      Math.floor(
-        (distance % 86400000) /
-        3600000
-      );
 
+    if (distance <= 0) {
 
-    const minutes =
-      Math.floor(
-        (distance % 3600000) /
-        60000
-      );
+      const countdown =
+        document.getElementById(
+          "countdown"
+        );
 
 
-    const seconds =
-      Math.floor(
-        (distance % 60000) /
-        1000
-      );
+      if (countdown) {
 
+        countdown.innerHTML =
+          '<div style="grid-column:1/-1"><strong>Today is the day!</strong></div>';
 
-    const daysElement =
-      document.getElementById("days");
+      }
 
-    const hoursElement =
-      document.getElementById("hours");
+      return;
+    }
 
-    const minutesElement =
-      document.getElementById("minutes");
 
-    const secondsElement =
-      document.getElementById("seconds");
+    const days =
+      Math.floor(
+        distance / 86400000
+      );
 
 
-    if (daysElement) {
+    const hours =
+      Math.floor(
+        (distance % 86400000) /
+        3600000
+      );
 
-      daysElement.textContent =
-        String(days).padStart(2, "0");
 
-    }
+    const minutes =
+      Math.floor(
+        (distance % 3600000) /
+        60000
+      );
 
 
-    if (hoursElement) {
+    const seconds =
+      Math.floor(
+        (distance % 60000) /
+        1000
+      );
 
-      hoursElement.textContent =
-        String(hours).padStart(2, "0");
 
-    }
+    const daysElement =
+      document.getElementById("days");
 
+    const hoursElement =
+      document.getElementById("hours");
 
-    if (minutesElement) {
+    const minutesElement =
+      document.getElementById("minutes");
 
-      minutesElement.textContent =
-        String(minutes).padStart(2, "0");
+    const secondsElement =
+      document.getElementById("seconds");
 
-    }
 
+    if (daysElement) {
 
-    if (secondsElement) {
+      daysElement.textContent =
+        String(days).padStart(2, "0");
 
-      secondsElement.textContent =
-        String(seconds).padStart(2, "0");
+    }
 
-    }
 
-  }
+    if (hoursElement) {
 
+      hoursElement.textContent =
+        String(hours).padStart(2, "0");
 
-  updateCountdown();
+    }
 
-  setInterval(
-    updateCountdown,
-    1000
-  );
 
+    if (minutesElement) {
 
-  /* =====================================================
-     SCROLL REVEAL
-  ===================================================== */
+      minutesElement.textContent =
+        String(minutes).padStart(2, "0");
 
-  const observer =
-    new IntersectionObserver(
-      entries => {
+    }
 
-        entries.forEach(entry => {
 
-          if (entry.isIntersecting) {
+    if (secondsElement) {
 
-            entry.target.classList.add(
-              "visible"
-            );
+      secondsElement.textContent =
+        String(seconds).padStart(2, "0");
 
-          }
+    }
 
-        });
+  }
 
-      },
-      {
-        threshold: 0.12
-      }
-    );
 
+  updateCountdown();
 
-  document
-    .querySelectorAll(".reveal")
-    .forEach(el => {
+  setInterval(
+    updateCountdown,
+    1000
+  );
 
-      observer.observe(el);
 
-    });
+  /* =====================================================
+     SCROLL REVEAL
+  ===================================================== */
 
+  const observer =
+    new IntersectionObserver(
+      entries => {
 
-  /* =====================================================
-     GALLERY
-  ===================================================== */
+        entries.forEach(entry => {
 
-  const gallery =
-    document.getElementById(
-      "gallerySlider"
-    );
+          if (entry.isIntersecting) {
 
+            entry.target.classList.add(
+              "visible"
+            );
 
-  const slides = [
-    ...document.querySelectorAll(
-      ".gallery-slide"
-    )
-  ];
+          }
 
+        });
 
-  const progress =
-    document.getElementById(
-      "galleryProgress"
-    );
+      },
+      {
+        threshold: 0.12
+      }
+    );
 
 
-  const current =
-    document.getElementById(
-      "currentSlide"
-    );
+  document
+    .querySelectorAll(".reveal")
+    .forEach(el => {
 
+      observer.observe(el);
 
-  const total =
-    document.getElementById(
-      "totalSlides"
-    );
+    });
 
 
-  const nextButton =
-    document.getElementById(
-      "nextSlide"
-    );
+  /* =====================================================
+     GALLERY
+  ===================================================== */
 
+  const gallery =
+    document.getElementById(
+      "gallerySlider"
+    );
 
-  const prevButton =
-    document.getElementById(
-      "prevSlide"
-    );
 
+  const slides = [
+    ...document.querySelectorAll(
+      ".gallery-slide"
+    )
+  ];
 
-  let index = 0;
 
-  let timer = null;
+  const progress =
+    document.getElementById(
+      "galleryProgress"
+    );
 
-  let startX = null;
 
-  let startY = null;
+  const current =
+    document.getElementById(
+      "currentSlide"
+    );
 
-  let moved = false;
 
+  const total =
+    document.getElementById(
+      "totalSlides"
+    );
 
-  if (
-    gallery &&
-    slides.length > 0 &&
-    progress &&
-    current &&
-    total
-  ) {
 
-    total.textContent =
-      String(slides.length)
-        .padStart(2, "0");
+  const nextButton =
+    document.getElementById(
+      "nextSlide"
+    );
 
 
-    function setGalleryImage(
-      slide,
-      slideIndex
-    ) {
+  const prevButton =
+    document.getElementById(
+      "prevSlide"
+    );
 
-      const photo =
-        slide.querySelector(
-          ".gallery-placeholder"
-        );
 
+  let index = 0;
 
-      if (!photo) {
-        return;
-      }
+  let timer = null;
 
+  let startX = null;
 
-      const imageNumber =
-        slideIndex + 1;
+  let startY = null;
 
+  let moved = false;
 
-      const imagePath =
-        `url("images/photo${imageNumber}.jpg")`;
 
+  if (
+    gallery &&
+    slides.length > 0 &&
+    progress &&
+    current &&
+    total
+  ) {
 
-      photo.style.backgroundImage =
-        imagePath;
+    total.textContent =
+      String(slides.length)
+        .padStart(2, "0");
 
 
-      photo.style.backgroundSize =
-        "cover";
+    function setGalleryImage(
+      slide,
+      slideIndex
+    ) {
 
+      const photo =
+        slide.querySelector(
+          ".gallery-placeholder"
+        );
 
-      photo.style.backgroundPosition =
-        "center";
 
+      if (!photo) {
+        return;
+      }
 
-      photo.style.backgroundRepeat =
-        "no-repeat";
 
-    }
+      const imageNumber =
+        slideIndex + 1;
 
 
-    function showSlide(nextIndex) {
+      const imagePath =
+        `url("images/photo${imageNumber}.jpg")`;
 
-      index =
-        (
-          nextIndex +
-          slides.length
-        ) %
-        slides.length;
 
+      photo.style.backgroundImage =
+        imagePath;
 
-      slides.forEach(
-        (slide, i) => {
 
-          setGalleryImage(
-            slide,
-            i
-          );
+      photo.style.backgroundSize =
+        "cover";
 
 
-          slide.classList.toggle(
-            "active",
-            i === index
-          );
+      photo.style.backgroundPosition =
+        "center";
 
-        }
-      );
 
+      photo.style.backgroundRepeat =
+        "no-repeat";
 
-      current.textContent =
-        String(index + 1)
-          .padStart(2, "0");
+    }
 
 
-      progress.style.width =
-        `${
-          ((index + 1) /
-          slides.length) *
-          100
-        }%`;
+    function showSlide(nextIndex) {
 
-    }
+      index =
+        (
+          nextIndex +
+          slides.length
+        ) %
+        slides.length;
 
 
-    function resetTimer() {
+      slides.forEach(
+        (slide, i) => {
 
-      if (timer !== null) {
+          setGalleryImage(
+            slide,
+            i
+          );
 
-        clearInterval(timer);
 
-      }
+          slide.classList.toggle(
+            "active",
+            i === index
+          );
 
+        }
+      );
 
-      timer =
-        setInterval(() => {
 
-          showSlide(index + 1);
+      current.textContent =
+        String(index + 1)
+          .padStart(2, "0");
 
-        }, 6500);
 
-    }
+      progress.style.width =
+        `${
+          ((index + 1) /
+          slides.length) *
+          100
+        }%`;
 
+    }
 
-    function stopTimer() {
 
-      if (timer !== null) {
+    function resetTimer() {
 
-        clearInterval(timer);
+      if (timer !== null) {
 
-        timer = null;
+        clearInterval(timer);
 
-      }
+      }
 
-    }
 
+      timer =
+        setInterval(() => {
 
-    if (nextButton) {
+          showSlide(index + 1);
 
-      nextButton.addEventListener(
-        "click",
-        event => {
+        }, 6500);
 
-          event.stopPropagation();
+    }
 
-          showSlide(index + 1);
 
-          resetTimer();
+    function stopTimer() {
 
-        }
-      );
+      if (timer !== null) {
 
-    }
+        clearInterval(timer);
 
+        timer = null;
 
-    if (prevButton) {
+      }
 
-      prevButton.addEventListener(
-        "click",
-        event => {
+    }
 
-          event.stopPropagation();
 
-          showSlide(index - 1);
+    if (nextButton) {
 
-          resetTimer();
+      nextButton.addEventListener(
+        "click",
+        event => {
 
-        }
-      );
+          event.stopPropagation();
 
-    }
+          showSlide(index + 1);
 
+          resetTimer();
 
-    gallery.addEventListener(
-      "pointerdown",
-      event => {
+        }
+      );
 
-        startX =
-          event.clientX;
+    }
 
-        startY =
-          event.clientY;
 
-        moved = false;
+    if (prevButton) {
 
-      }
-    );
+      prevButton.addEventListener(
+        "click",
+        event => {
 
+          event.stopPropagation();
 
-    gallery.addEventListener(
-      "pointermove",
-      event => {
+          showSlide(index - 1);
 
-        if (
-          startX === null ||
-          startY === null
-        ) {
+          resetTimer();
 
-          return;
+        }
+      );
 
-        }
+    }
 
 
-        const deltaX =
-          event.clientX -
-          startX;
+    gallery.addEventListener(
+      "pointerdown",
+      event => {
 
+        startX =
+          event.clientX;
 
-        const deltaY =
-          event.clientY -
-          startY;
+        startY =
+          event.clientY;
 
+        moved = false;
 
-        if (
-          Math.abs(deltaX) > 10 ||
-          Math.abs(deltaY) > 10
-        ) {
+      }
+    );
 
-          moved = true;
 
-        }
+    gallery.addEventListener(
+      "pointermove",
+      event => {
 
-      }
-    );
+        if (
+          startX === null ||
+          startY === null
+        ) {
 
+          return;
 
-    gallery.addEventListener(
-      "pointerup",
-      event => {
+        }
 
-        if (
-          startX === null ||
-          startY === null
-        ) {
 
-          return;
+        const deltaX =
+          event.clientX -
+          startX;
 
-        }
 
+        const deltaY =
+          event.clientY -
+          startY;
 
-        const deltaX =
-          event.clientX -
-          startX;
 
+        if (
+          Math.abs(deltaX) > 10 ||
+          Math.abs(deltaY) > 10
+        ) {
 
-        const deltaY =
-          event.clientY -
-          startY;
+          moved = true;
 
+        }
 
-        const horizontalSwipe =
-          Math.abs(deltaX) > 45 &&
-          Math.abs(deltaX) >
-            Math.abs(deltaY);
+      }
+    );
 
 
-        if (horizontalSwipe) {
+    gallery.addEventListener(
+      "pointerup",
+      event => {
 
-          if (deltaX < 0) {
+        if (
+          startX === null ||
+          startY === null
+        ) {
 
-            showSlide(index + 1);
+          return;
 
-          } else {
+        }
 
-            showSlide(index - 1);
 
-          }
+        const deltaX =
+          event.clientX -
+          startX;
 
 
-          moved = true;
+        const deltaY =
+          event.clientY -
+          startY;
 
-          resetTimer();
 
-        }
+        const horizontalSwipe =
+          Math.abs(deltaX) > 45 &&
+          Math.abs(deltaX) >
+            Math.abs(deltaY);
 
 
-        startX = null;
+        if (horizontalSwipe) {
 
-        startY = null;
+          if (deltaX < 0) {
 
+            showSlide(index + 1);
 
-        if (moved) {
+          } else {
 
-          setTimeout(
-            () => {
+            showSlide(index - 1);
 
-              moved = false;
+          }
 
-            },
-            50
-          );
 
-        }
+          moved = true;
 
-      }
-    );
+          resetTimer();
 
+        }
 
-    gallery.addEventListener(
-      "pointercancel",
-      () => {
 
-        startX = null;
+        startX = null;
 
-        startY = null;
+        startY = null;
 
-        moved = false;
 
-      }
-    );
+        if (moved) {
 
+          setTimeout(
+            () => {
 
-    gallery.addEventListener(
-      "mouseenter",
-      () => {
+              moved = false;
 
-        stopTimer();
+            },
+            50
+          );
 
-      }
-    );
+        }
 
+      }
+    );
 
-    gallery.addEventListener(
-      "mouseleave",
-      () => {
 
-        resetTimer();
+    gallery.addEventListener(
+      "pointercancel",
+      () => {
 
-      }
-    );
+        startX = null;
 
+        startY = null;
 
-    showSlide(0);
+        moved = false;
 
-    resetTimer();
+      }
+    );
 
 
-    /* =================================================
-       LIGHTBOX
-    ================================================= */
+    gallery.addEventListener(
+      "mouseenter",
+      () => {
 
-    const lightbox =
-      document.getElementById(
-        "lightbox"
-      );
+        stopTimer();
 
+      }
+    );
 
-    const lightboxImage =
-      document.getElementById(
-        "lightboxImage"
-      );
 
+    gallery.addEventListener(
+      "mouseleave",
+      () => {
 
-    if (
-      lightbox &&
-      lightboxImage
-    ) {
+        resetTimer();
 
-      slides.forEach(
-        slide => {
+      }
+    );
 
-          slide.addEventListener(
-            "click",
-            event => {
 
-              if (moved) {
+    showSlide(0);
 
-                moved = false;
+    resetTimer();
 
-                return;
 
-              }
+    /* =================================================
+       LIGHTBOX
+    ================================================= */
 
+    const lightbox =
+      document.getElementById(
+        "lightbox"
+      );
 
-              if (
-                event.target.closest(
-                  ".gallery-arrow"
-                )
-              ) {
 
-                return;
+    const lightboxImage =
+      document.getElementById(
+        "lightboxImage"
+      );
 
-              }
 
+    if (
+      lightbox &&
+      lightboxImage
+    ) {
 
-              const placeholder =
-                slide.querySelector(
-                  ".gallery-placeholder"
-                );
+      slides.forEach(
+        slide => {
 
+          slide.addEventListener(
+            "click",
+            event => {
 
-              if (!placeholder) {
-                return;
-              }
+              if (moved) {
 
+                moved = false;
 
-              const inlineBackground =
-                placeholder.style
-                  .backgroundImage;
+                return;
 
+              }
 
-              const match =
-                inlineBackground.match(
-                  /url\(["']?([^"')]+)["']?\)/
-                );
 
+              if (
+                event.target.closest(
+                  ".gallery-arrow"
+                )
+              ) {
 
-              if (
-                match &&
-                match[1]
-              ) {
+                return;
 
-                lightboxImage.style
-                  .backgroundImage =
-                    `url("${match[1]}")`;
+              }
 
-              } else {
 
-                lightboxImage.style
-                  .backgroundImage =
-                    "none";
+              const placeholder =
+                slide.querySelector(
+                  ".gallery-placeholder"
+                );
 
-              }
 
+              if (!placeholder) {
+                return;
+              }
 
-              lightbox.classList.add(
-                "show"
-              );
 
+              const inlineBackground =
+                placeholder.style
+                  .backgroundImage;
 
-              lightbox.setAttribute(
-                "aria-hidden",
-                "false"
-              );
 
+              const match =
+                inlineBackground.match(
+                  /url\(["']?([^"')]+)["']?\)/
+                );
 
-              stopTimer();
 
-            }
-          );
+              if (
+                match &&
+                match[1]
+              ) {
 
-        }
-      );
+                lightboxImage.style
+                  .backgroundImage =
+                    `url("${match[1]}")`;
 
+              } else {
 
-      function closeLightbox() {
+                lightboxImage.style
+                  .backgroundImage =
+                    "none";
 
-        lightbox.classList.remove(
-          "show"
-        );
+              }
 
 
-        lightbox.setAttribute(
-          "aria-hidden",
-          "true"
-        );
+              lightbox.classList.add(
+                "show"
+              );
 
 
-        lightboxImage.style
-          .backgroundImage =
-          "none";
+              lightbox.setAttribute(
+                "aria-hidden",
+                "false"
+              );
 
 
-        resetTimer();
+              stopTimer();
 
-      }
+            }
+          );
 
+        }
+      );
 
-      const closeButton =
-        document.getElementById(
-          "closeLightbox"
-        );
 
+      function closeLightbox() {
 
-      if (closeButton) {
+        lightbox.classList.remove(
+          "show"
+        );
 
-        closeButton.addEventListener(
-          "click",
-          event => {
 
-            event.stopPropagation();
+        lightbox.setAttribute(
+          "aria-hidden",
+          "true"
+        );
 
-            closeLightbox();
 
-          }
-        );
+        lightboxImage.style
+          .backgroundImage =
+          "none";
 
-      }
 
+        resetTimer();
 
-      lightbox.addEventListener(
-        "click",
-        event => {
+      }
 
-          if (
-            event.target ===
-            lightbox
-          ) {
 
-            closeLightbox();
+      const closeButton =
+        document.getElementById(
+          "closeLightbox"
+        );
 
-          }
 
-        }
-      );
+      if (closeButton) {
 
+        closeButton.addEventListener(
+          "click",
+          event => {
 
-      document.addEventListener(
-        "keydown",
-        event => {
+            event.stopPropagation();
 
-          if (
-            event.key ===
-            "Escape"
-          ) {
+            closeLightbox();
 
-            if (
-              lightbox.classList
-                .contains("show")
-            ) {
+          }
+        );
 
-              closeLightbox();
+      }
 
-            }
 
-          }
+      lightbox.addEventListener(
+        "click",
+        event => {
 
-        }
-      );
+          if (
+            event.target ===
+            lightbox
+          ) {
 
-    }
+            closeLightbox();
 
-  }
+          }
 
+        }
+      );
 
-  /* =====================================================
-     RSVP
-  ===================================================== */
 
-  const rsvpForm =
-    document.getElementById(
-      "rsvpForm"
-    );
+      document.addEventListener(
+        "keydown",
+        event => {
 
+          if (
+            event.key ===
+            "Escape"
+          ) {
 
-  if (rsvpForm) {
+            if (
+              lightbox.classList
+                .contains("show")
+            ) {
 
-    rsvpForm.addEventListener(
-      "submit",
-      e => {
+              closeLightbox();
 
-        e.preventDefault();
+            }
 
+          }
 
-        const form =
-          e.currentTarget;
+        }
+      );
 
+    }
 
-        const attendance =
-          form.querySelector(
-            'input[name="attendance"]:checked'
-          );
+  }
 
 
-        const guestNameElement =
-          document.getElementById(
-            "guestName"
-          );
+  /* =====================================================
+     RSVP
+  ===================================================== */
 
+  const rsvpForm =
+    document.getElementById(
+      "rsvpForm"
+    );
 
-        const guestsElement =
-          document.getElementById(
-            "guests"
-          );
 
+  if (rsvpForm) {
 
-        const messageElement =
-          document.getElementById(
-            "message"
-          );
+    rsvpForm.addEventListener(
+      "submit",
+      e => {
 
+        e.preventDefault();
 
-        const guestName =
-          guestNameElement
-            ? guestNameElement.value
-            : "";
 
+        const form =
+          e.currentTarget;
 
-        const guests =
-          guestsElement
-            ? guestsElement.value
-            : "";
 
+        const attendance =
+          form.querySelector(
+            'input[name="attendance"]:checked'
+          );
 
-        const guestMessage =
-          messageElement
-            ? messageElement.value
-            : "";
 
+        const guestNameElement =
+          document.getElementById(
+            "guestName"
+          );
 
-        const status =
-          attendance
-            ? attendance.value
-            : "Not specified";
 
+        const guestsElement =
+          document.getElementById(
+            "guests"
+          );
 
-        const details = [
 
-          `Guest: ${guestName}`,
+        const messageElement =
+          document.getElementById(
+            "message"
+          );
 
-          `Status: ${status}`,
 
-          `Guests: ${guests}`,
+        const guestName =
+          guestNameElement
+            ? guestNameElement.value
+            : "";
 
-          `Message: ${
-            guestMessage ||
-            "No message"
-          }`
 
-        ].join("\n");
+        const guests =
+          guestsElement
+            ? guestsElement.value
+            : "";
 
 
-        const message =
-          `Wedding RSVP\n\n${
-            guestName
-          } ${
-            status.toLowerCase()
-          }.`;
+        const guestMessage =
+          messageElement
+            ? messageElement.value
+            : "";
 
 
+        const status =
+          attendance
+            ? attendance.value
+            : "Not specified";
 
-        const emailBody =
-          `${message}\n\n${details}`;
 
+        const details = [
 
-        const mailto =
-          `mailto:montalbangeordanlou@gmail.com?subject=${
-            encodeURIComponent(
-              `RSVP: ${guestName}`
-            )
-          }&body=${
-            encodeURIComponent(
-              emailBody
-            )
-          }`;
+          `Guest: ${guestName}`,
 
+          `Status: ${status}`,
 
-        const sms =
-          `sms:+639639839550?body=${
-            encodeURIComponent(
-              message
-            )
-          }`;
+          `Guests: ${guests}`,
 
+          `Message: ${
+            guestMessage ||
+            "No message"
+          }`
 
-        window.open(
-          mailto,
-          "_blank"
-        );
+        ].join("\n");
 
 
-        window.open(
-          sms,
-          "_blank"
-        );
+        const message =
+          `Wedding RSVP\n\n${
+            guestName
+          } ${
+            status.toLowerCase()
+          }.`;
 
 
-        e.currentTarget.hidden =
-          true;
 
+        const emailBody =
+          `${message}\n\n${details}`;
 
-        const rsvpSuccess =
-          document.getElementById(
-            "rsvpSuccess"
-          );
 
+        const mailto =
+          `mailto:montalbangeordanlou@gmail.com?subject=${
+            encodeURIComponent(
+              `RSVP: ${guestName}`
+            )
+          }&body=${
+            encodeURIComponent(
+              emailBody
+            )
+          }`;
 
-        if (rsvpSuccess) {
 
-          rsvpSuccess.hidden =
-            false;
+        const sms =
+          `sms:+639639839550?body=${
+            encodeURIComponent(
+              message
+            )
+          }`;
 
-        }
 
-      }
-    );
+        window.open(
+          mailto,
+          "_blank"
+        );
 
-  }
 
+        window.open(
+          sms,
+          "_blank"
+        );
 
-  /* =====================================================
-     COPY REGISTRY
-  ===================================================== */
 
-  document
-    .querySelectorAll("[data-copy]")
-    .forEach(button => {
+        e.currentTarget.hidden =
+          true;
 
-      button.addEventListener(
-        "click",
-        async () => {
 
-          try {
+        const rsvpSuccess =
+          document.getElementById(
+            "rsvpSuccess"
+          );
 
-            await navigator.clipboard
-              .writeText(
-                button.dataset.copy
-              );
 
+        if (rsvpSuccess) {
 
-            const copyStatus =
-              document.getElementById(
-                "copyStatus"
-              );
+          rsvpSuccess.hidden =
+            false;
 
+        }
 
-            if (copyStatus) {
+      }
+    );
 
-              copyStatus.textContent =
-                "Copied to clipboard.";
+  }
 
-            }
 
-          } catch {
+  /* =====================================================
+     COPY REGISTRY
+  ===================================================== */
 
-            const copyStatus =
-              document.getElementById(
-                "copyStatus"
-              );
+  document
+    .querySelectorAll("[data-copy]")
+    .forEach(button => {
 
+      button.addEventListener(
+        "click",
+        async () => {
 
-            if (copyStatus) {
+          try {
 
-              copyStatus.textContent =
-                "Copy unavailable in this browser.";
+            await navigator.clipboard
+              .writeText(
+                button.dataset.copy
+              );
 
-            }
 
-          }
+            const copyStatus =
+              document.getElementById(
+                "copyStatus"
+              );
 
 
-          setTimeout(
-            () => {
+            if (copyStatus) {
 
-              const copyStatus =
-                document.getElementById(
-                  "copyStatus"
-                );
+              copyStatus.textContent =
+                "Copied to clipboard.";
 
+            }
 
-              if (copyStatus) {
+          } catch {
 
-                copyStatus.textContent =
-                  "";
+            const copyStatus =
+              document.getElementById(
+                "copyStatus"
+              );
 
-              }
 
-            },
-            2500
-          );
+            if (copyStatus) {
 
-        }
-      );
+              copyStatus.textContent =
+                "Copy unavailable in this browser.";
 
-    });
+            }
 
+          }
 
-  /* =====================================================
-     PETALS
-  ===================================================== */
 
-  function createPetals(count) {
+          setTimeout(
+            () => {
 
-    const container =
-      document.querySelector(
-        ".petals"
-      );
+              const copyStatus =
+                document.getElementById(
+                  "copyStatus"
+                );
 
 
-    if (!container) {
-      return;
-    }
+              if (copyStatus) {
 
+                copyStatus.textContent =
+                  "";
 
-    for (
-      let i = 0;
-      i < count;
-      i++
-    ) {
+              }
 
-      const p =
-        document.createElement(
-          "span"
-        );
+            },
+            2500
+          );
 
+        }
+      );
 
-      p.className =
-        "petal";
+    });
 
 
-      p.style.left =
-        Math.random() * 100 +
-        "%";
+  /* =====================================================
+     PETALS
+  ===================================================== */
 
+  function createPetals(count) {
 
-      p.style.top =
-        -Math.random() * 20 +
-        "%";
+    const container =
+      document.querySelector(
+        ".petals"
+      );
 
 
-      p.style.setProperty(
-        "--drift",
-        (
-          Math.random() * 160 -
-          80
-        ) + "px"
-      );
+    if (!container) {
+      return;
+    }
 
 
-      p.style.animationDuration =
-        (
-          7 +
-          Math.random() * 7
-        ) + "s";
+    for (
+      let i = 0;
+      i < count;
+      i++
+    ) {
 
+      const p =
+        document.createElement(
+          "span"
+        );
 
-      p.style.animationDelay =
-        Math.random() * 5 +
-        "s";
 
+      p.className =
+        "petal";
 
-      container.appendChild(p);
 
-    }
+      p.style.left =
+        Math.random() * 100 +
+        "%";
 
-  }
+
+      p.style.top =
+        -Math.random() * 20 +
+        "%";
+
+
+      p.style.setProperty(
+        "--drift",
+        (
+          Math.random() * 160 -
+          80
+        ) + "px"
+      );
+
+
+      p.style.animationDuration =
+        (
+          7 +
+          Math.random() * 7
+        ) + "s";
+
+
+      p.style.animationDelay =
+        Math.random() * 5 +
+        "s";
+
+
+      container.appendChild(p);
+
+    }
+
+  }
 
 });
