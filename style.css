@@ -1018,7 +1018,6 @@ a{
 }
 
 .hero h1 {
-  /* Replace shorthand font to prevent tracking inheritance bugs */
   font-family: var(--serif);
   font-size: clamp(40px, 7vw, 85px);
   font-weight: 700;
@@ -1027,8 +1026,8 @@ a{
   margin: 10px 0 24px;
   color: #000;
 
-  /* Force zero letter-spacing on the heading and all children */
-  letter-spacing: normal !important;
+  /* Tighter letter spacing */
+  letter-spacing: -2px !important;
   word-spacing: normal !important;
 
   text-shadow:
@@ -1036,23 +1035,29 @@ a{
     0 6px 16px rgba(0,0,0,.35);
 }
 
-/* Force every child tag inside h1 to drop letter spacing */
-.hero h1 * {
-  letter-spacing: normal !important;
+/* Names inside the hero */
+.hero h1 span {
+  font-family: var(--script);
+  font-size: 1em;
+  font-weight: 700;
+  display: inline-block;
+
+  /* Reduce excessive spacing */
+  letter-spacing: -1.5px !important;
   word-spacing: normal !important;
 }
 
-.hero h1 span,
-.closing h2 span {
-  font-family: var(--script);
-  font-size: 1em;
-  display: inline-block;
-}
-
+/* Ampersand */
 .hero h1 .name-ampersand {
   color: #e4cda0;
-  margin: 0 10px;
-  text-shadow: 0 2px 6px rgba(0,0,0,.30);
+
+  /* Keep & close to the names */
+  margin: 0 8px;
+
+  letter-spacing: 0 !important;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,.30);
 }
 /* =========================================
    INTRO
