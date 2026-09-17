@@ -11,7 +11,213 @@
     --script:"Great Vibes",cursive;
 }
 
+/* =====================================================
+   HERO — INVITATION CARD LAYOUT
+===================================================== */
 
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* HERO BACKGROUND */
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* HERO OVERLAY */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(248, 244, 236, 0.78);
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(90%, 850px);
+
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 35px;
+
+    border: 1px solid rgba(174, 126, 65, 0.65);
+
+    background: rgba(250, 247, 241, 0.25);
+}
+
+/* TOP TEXT */
+
+.hero-eyebrow {
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #343434;
+
+    margin-bottom: 30px;
+}
+
+/* NAMES */
+
+.hero-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 9px;
+
+    line-height: 1.05;
+
+    color: #111;
+}
+
+/* GEORDAN */
+
+.name-geordan {
+    font-size: clamp(48px, 7vw, 78px);
+}
+
+/* AMPERSAND */
+
+.name-ampersand {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(65px, 8vw, 95px);
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+
+    line-height: 1.1;
+
+    color: #b1844b;
+
+    margin: 12px 0;
+}
+
+/* ANGELENE */
+
+.name-angelene {
+    font-size: clamp(42px, 6.5vw, 74px);
+}
+
+/* SCRIPT TEXT */
+
+.hero-script {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(24px, 3vw, 38px);
+
+    font-weight: 400;
+
+    color: #252525;
+
+    margin-top: 35px;
+
+    margin-bottom: 25px;
+
+    line-height: 1.3;
+}
+
+/* DATE */
+
+.hero-date {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(18px, 2vw, 25px);
+
+    letter-spacing: 6px;
+
+    color: #222;
+
+    margin-top: 5px;
+}
+
+/* SCROLL CUE */
+
+.hero .scroll-cue {
+    margin-top: 45px;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .hero-content {
+        width: 90%;
+
+        min-height: 580px;
+
+        padding: 50px 15px;
+    }
+
+    .hero-eyebrow {
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+
+        margin-bottom: 25px;
+    }
+
+    .hero-names {
+        letter-spacing: 5px;
+    }
+
+    .name-ampersand {
+        margin: 8px 0;
+    }
+
+    .hero-script {
+        font-size: 25px;
+
+        margin-top: 28px;
+    }
+
+    .hero-date {
+        font-size: 17px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero .scroll-cue {
+        margin-top: 35px;
+    }
+
+}
 /* =========================================================
    RESET
 ========================================================= */
