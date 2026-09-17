@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "click",
       openInvitation
     );
+    startMusic();
 
   }
 
