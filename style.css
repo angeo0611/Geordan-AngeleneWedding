@@ -11,6 +11,7 @@
     --script:"Great Vibes",cursive;
 }
 
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -1016,125 +1017,109 @@ a{
     height: 62px;
   }
 }
+
+
 /* =========================================
-   HERO
-   ========================================= */
+   HERO
+   ========================================= */
 
 .hero{
-  height:100svh;
-  min-height:650px;
-  position:relative;
-  display:grid;
-  place-items:center;
-  color:white;
-  text-align:center;
-  overflow:hidden;
+  height:100svh;
+  min-height:650px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  color:white;
+  text-align:center;
+  overflow:hidden
 }
 
 .hero-image,
 .closing-image{
-  position:absolute;
-  inset:0;
+  position:absolute;
+  inset:0;
 
-  background-image:url("images/hero.jpg");
-  background-size:cover;
-  background-position:center;
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
 
-  animation:
-    slowZoom 16s ease-in-out infinite alternate;
+  animation:
+    slowZoom 16s ease-in-out infinite alternate;
 
-  filter:
-    brightness(.78)
-    saturate(.75)
-    contrast(1.05);
+  filter:
+    brightness(.78)
+    saturate(.75)
+    contrast(1.05);
 
-  opacity:.50;
+  opacity:.28
 }
 
 .hero-overlay,
 .closing-overlay{
-  position:absolute;
-  inset:0;
+  position:absolute;
+  inset:0;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(241,231,220,.55),
-      rgba(124,108,91,.45) 42%,
-      rgba(44,35,26,.62)
-    );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(241,231,220,.55),
+      rgba(124,108,91,.45) 42%,
+      rgba(44,35,26,.62)
+    )
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
+  position:relative;
+  z-index:2
 }
 
 .hero h1{
-  font:
-    700 clamp(70px,13vw,150px)/.75 var(--serif);
+  font:
+    500 clamp(70px,13vw,150px)/.75 var(--serif);
 
-  margin:10px 0 24px;
-
-  /* INCREASE LETTER SPACING */
-  letter-spacing:1.0em;
-
-  /* BLACK NAMES */
-  color:#000;
-
-  /* SHADOW */
-  text-shadow:
-    0 3px 8px rgba(255,255,255,.55),
-    0 6px 16px rgba(0,0,0,.35);
+  margin:10px 0 24px;
+  letter-spacing:-.05em
 }
 
 .hero h1 span,
 .closing h2 span{
-  font-family:var(--script);
-  font-size:.6em;
+  font-family:var(--script);
+  font-size:.6em;
+  color:#e4cda0
 }
 
-/* =========================================
-   AMPERSAND
-   ========================================= */
-
-.hero h1 .name-ampersand{
-  color:#e4cda0;
-
-  text-shadow:
-    0 2px 6px rgba(0,0,0,.30);
-}
 .script{
-  font:42px var(--script);
-  color:#e4cda0;
+  font:42px var(--script);
+  color:#e4cda0
 }
 
 .hero-date{
-  font:
-    600 13px var(--sans);
+  font:
+    600 13px var(--sans);
 
-  letter-spacing:.35em;
-  margin-top:25px;
+  letter-spacing:.35em;
+  margin-top:25px
 }
 
 .scroll-cue{
-  display:inline-flex;
-  flex-direction:column;
-  gap:8px;
+  display:inline-flex;
+  flex-direction:column;
+  gap:8px;
 
-  margin-top:80px;
+  margin-top:80px;
 
-  text-decoration:none;
+  text-decoration:none;
 
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.2em;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.2em
 }
 
 .scroll-cue span{
-  font-size:22px;
-  animation:bob 1.7s infinite;
+  font-size:22px;
+  animation:bob 1.7s infinite
 }
+
 /* =========================================
    INTRO
    ========================================= */
