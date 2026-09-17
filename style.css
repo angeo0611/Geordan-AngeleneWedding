@@ -1078,7 +1078,7 @@ a{
     500 clamp(70px,13vw,150px)/.75 var(--serif);
 
   margin:10px 0 24px;
-  letter-spacing:-.05em
+  letter-spacing:-.0em
 }
 
 .hero h1 span,
