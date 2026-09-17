@@ -10,29 +10,6 @@
     --sans:"DM Sans",sans-serif;
     --script:"Great Vibes",cursive;
 }
-.hero-names {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    margin: 0;
-    padding: 0;
-
-    /* Keep your original font */
-    letter-spacing: 8px;
-    line-height: 1;
-}
-
-.name-ampersand {
-
-    letter-spacing: 0;
-    line-height: 1.2;
-
-    margin: 10px 0;
-}
 
 /* =========================================================
    RESET
