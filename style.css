@@ -10,46 +10,89 @@
     --sans:"DM Sans",sans-serif;
     --script:"Great Vibes",cursive;
 }
-/* =========================================
-   DESKTOP — ORIGINAL FORMAT
-========================================= */
+/* =====================================================
+   HERO TEXT — VISIBILITY & SPACING
+===================================================== */
 
-.hero-names {
-    display: block;
+.hero-content {
+    position: relative;
+    z-index: 2;
+
     text-align: center;
 }
 
-.name-geordan,
-.name-ampersand,
-.name-angelene {
-    display: inline;
+/* TOP TEXT */
+
+.hero-eyebrow {
+    color: #b1844b;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
 }
 
-/* =========================================
-   MOBILE — 3 SEPARATE LINES
-========================================= */
+/* NAMES */
 
-@media (max-width: 600px) {
+.hero-names {
+    text-align: center;
 
-    .hero-names {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    margin: 0;
+    padding: 0;
 
-        text-align: center;
-    }
+    line-height: 1.05;
 
-    .name-geordan,
-    .name-ampersand,
-    .name-angelene {
-        display: block;
-    }
+    /* Prevent excessive spacing */
+    letter-spacing: 0;
+}
 
-    .name-ampersand {
-        margin: 10px 0;
-    }
+/* GEORDAN */
 
+.name-geordan {
+    display: inline;
+    color: #171717;
+
+    letter-spacing: 0;
+}
+
+/* AMPERSAND */
+
+.name-ampersand {
+    display: inline;
+
+    color: #b1844b;
+
+    letter-spacing: 0;
+
+    margin: 0 12px;
+}
+
+/* ANGELENE */
+
+.name-angelene {
+    display: inline;
+    color: #171717;
+
+    letter-spacing: 0;
+}
+
+/* SCRIPT DESCRIPTION */
+
+.hero-script {
+    color: #222;
+
+    margin-top: 30px;
+
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* DATE */
+
+.hero-date {
+    color: #222;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
 }
 /* =========================================================
    RESET
